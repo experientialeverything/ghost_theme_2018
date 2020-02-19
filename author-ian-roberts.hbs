@@ -7,7 +7,7 @@
   Files: author-ian-roberts.hbs
 --}}
 
-{{#primary_author}}
+{{#foreach authors}}
 {{!-- Everything inside the #author tags pulls data from the author --}}
 
 <header class="site-archive-header">
@@ -45,7 +45,7 @@
         </div>
     </div>
 </header>
-{{/primary_author}}
+{{/foreach}}
 
 {{!-- commented out main tag below, copied in {{#post}} tag and {{#contentFor "scripts"}} tag from page.hbs --}}
 {{!-- commented out {{#if feature_image}} tag below --}}
@@ -65,8 +65,7 @@
 
     </div>
 </main> -->
-{{!-- wrapping in a foreach posts to see if we render anything --}}
-{{#foreach posts}}
+
 {{!-- Everything inside the #post tags pulls data from the post --}}
 {{#post}}
 <!--
@@ -135,8 +134,6 @@
 </main>
 
 {{/post}}
-
-{{/foreach}}
 
 {{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
 {{#contentFor "scripts"}}
