@@ -7,6 +7,8 @@
   Files: author-ian-roberts.hbs
 --}}
 
+{{#get 'authors' limit='all' include='count.posts' order='count.posts desc'}
+
 {{#foreach authors}}
 {{!-- Everything inside the #author tags pulls data from the author --}}
 
@@ -45,6 +47,7 @@
         </div>
     </div>
 </header>
+
 {{/foreach}}
 
 {{!-- commented out main tag below, copied in {{#post}} tag and {{#contentFor "scripts"}} tag from page.hbs --}}
@@ -67,6 +70,7 @@
 </main> -->
 
 {{!-- Everything inside the #post tags pulls data from the post --}}
+
 {{#post}}
 <!--
 {{comment_id}},
