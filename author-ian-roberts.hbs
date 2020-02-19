@@ -1,9 +1,14 @@
 {{!< default}}
 {{!-- The tag above means - insert everything in this file into the {body} of the default.hbs template --}}
 
-{{#author}}
-{{!-- Everything inside the #author tags pulls data from the author --}}
+{{!--
+  Error:
+  The #author block helper should be replaced with #primary_author or #foreach authors.../foreach
+  Files: author-ian-roberts.hbs
+--}}
 
+{{#primary_author}}
+{{!-- Everything inside the #author tags pulls data from the author --}}
 
 <header class="site-archive-header">
     {{> site-header}}
@@ -40,7 +45,7 @@
         </div>
     </div>
 </header>
-{{/author}}
+{{/primary_author}}
 
 {{!-- commented out main tag below, copied in {{#post}} tag and {{#contentFor "scripts"}} tag from page.hbs --}}
 {{!-- commented out {{#if feature_image}} tag below --}}
@@ -64,6 +69,28 @@
 {{#foreach posts}}
 {{!-- Everything inside the #post tags pulls data from the post --}}
 {{#post}}
+<!--
+{{comment_id}},
+{{title}},
+{{slug}},
+{{excerpt}},
+{{content}},
+{{url}},
+{{feature_image}},
+{{featured}},
+{{page}},
+{{meta_title}},
+{{meta_description}},
+{{published_at}},
+{{updated_at}},
+{{created_at}},
+{{primary_author}},
+{{tags}},
+{{primary_tag}},
+{{date}},
+{{img_url}},
+{{post_class}},
+{{tags}} -->
 
 <main id="site-main" class="site-main outer">
     <div class="inner">
@@ -74,10 +101,13 @@
                 <h1 class="post-full-title">{{title}}</h1>
             </header>
 
-            <!-- {{#if feature_image}}
+            {{!--
+            {{#if feature_image}}
             <figure class="post-full-image">
+            --}}
                 {{!-- This is a responsive image, it loads different sizes depending on device
                 https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433 --}}
+                {{!--
                 <img
                     srcset="{{img_url feature_image size="s"}} 300w,
                             {{img_url feature_image size="m"}} 600w,
@@ -90,7 +120,8 @@
                     alt="{{title}}"
                 />
             </figure>
-            {{/if}} -->
+            {{/if}}
+            --}}
 
             <section class="post-full-content">
                 <div class="post-content">
